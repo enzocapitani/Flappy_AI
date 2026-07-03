@@ -1,6 +1,6 @@
 package principal;
 
-import objetos.Passaro;
+import objetos.*;
 
 import javax.swing.JPanel;
 
@@ -14,6 +14,7 @@ public class GamePanel extends JPanel implements Runnable {
     private final int FPS = 60;
 
     public Passaro passaro = new Passaro();
+    public Cano cano = new Cano();
 
     public GamePanel() {
         super();
@@ -57,6 +58,7 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2d = (Graphics2D) g;
 
         passaro.desenharPassaro(g2d);
+        cano.desenharCano(g2d);
 
     }
 

@@ -20,8 +20,9 @@ public class PlayerInputs implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_SPACE)
-            gamepanel.passaro.pular();
+        switch (e.getKeyCode()){
+            case KeyEvent.VK_SPACE -> gamepanel.passaro.pular();
+        }
     }
 
     @Override

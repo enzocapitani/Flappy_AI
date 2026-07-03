@@ -22,10 +22,10 @@ public class Passaro {
     }
 
     public void desenharPassaro(Graphics2D g2){
-        g2.create();
-        g2.rotate(Math.toRadians(angulo), x + tamanho/2, y + tamanho/2);
-        g2.drawImage(img, x, y,tamanho, tamanho, null);
-        g2.dispose();
+        Graphics2D g2d = (Graphics2D) g2.create();
+        g2d.rotate(Math.toRadians(angulo), x + tamanho/2, y + tamanho/2);
+        g2d.drawImage(img, x, y,tamanho, tamanho, null);    
+        g2d.dispose(); 
     }
 
     public void pular(){

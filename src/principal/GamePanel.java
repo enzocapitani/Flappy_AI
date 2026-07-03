@@ -1,9 +1,7 @@
 package principal;
 
-import objetos.*;
-
 import javax.swing.JPanel;
-
+import principal.GameManager;
 import inputs.PlayerInputs;
 
 import java.awt.*;
@@ -13,15 +11,17 @@ public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
     private final int FPS = 60;
 
-    public Passaro passaro = new Passaro();
-    public Cano cano = new Cano();
+    GameManager gameManager;
 
     public GamePanel() {
         super();
+        gameManager = new GameManager();
+        
         setPreferredSize(Global.screenSize);
         setBackground(Color.BLACK);
-        addKeyListener(new PlayerInputs(this));
+        addKeyListener(new PlayerInputs(gameManager));
         setFocusable(true);
+
 
         gameThread = new Thread(this);
         gameThread.start();
@@ -40,7 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta >= 1) {
 
-                passaro.update();
+                gameManager.update();
 
                 repaint();
 
@@ -57,9 +57,8 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
-        passaro.desenharPassaro(g2d);
-        cano.desenharCano(g2d);
+        gameManager.desenharComponentes(g2d);
 
-    }
+    } 
 
 }

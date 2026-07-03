@@ -3,14 +3,14 @@ package inputs;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import principal.GamePanel;
+import principal.GameManager;
 
 public class PlayerInputs implements KeyListener {
 
-    GamePanel gamepanel;
+    GameManager gameManager;
 
-    public PlayerInputs(GamePanel gp){
-        this.gamepanel = gp;
+    public PlayerInputs(GameManager gm){
+        this.gameManager = gm;
     }
 
     @Override
@@ -20,8 +20,8 @@ public class PlayerInputs implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()){
-            case KeyEvent.VK_SPACE -> gamepanel.passaro.pular();
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_SPACE -> gameManager.passaro.pular();
         }
     }
 

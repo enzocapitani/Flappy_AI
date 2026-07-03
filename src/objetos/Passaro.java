@@ -6,7 +6,7 @@ import java.awt.*;
 
 
 public class Passaro {
-    protected Image img = Global.carregarImagem("resources/images/passaro.png");
+    Image img = Global.carregarImagem("resources/images/passaro.png");
     int x = 300, y = Global.altura_tela / 2;
     int tamanho = 48;
 

@@ -10,7 +10,8 @@ public class GameWindow extends JFrame {
         setTitle("Flappy IA");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(gamePanel);
-        pack();
+        setSize(Global.screenSize);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
         setVisible(true);
 

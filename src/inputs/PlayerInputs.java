@@ -20,7 +20,8 @@ public class PlayerInputs implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-       System.out.println("Tecla apertada" + e);
+        if(e.getKeyCode() == KeyEvent.VK_SPACE)
+            gamepanel.passaro.pular();
     }
 
     @Override

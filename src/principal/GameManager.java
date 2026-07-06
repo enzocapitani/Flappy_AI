@@ -32,6 +32,18 @@ public class GameManager {
         }
     }
 
+    public void definirCanoPassaro(){
+        int distancia = Integer.MAX_VALUE;
+        for (Cano cano : canos) {
+
+            if(cano.x1 < distancia){
+                distancia = cano.x1;
+                passaro.setCano(cano);
+            }
+
+        }
+    }
+
     public int canoMaisDist(){
         int melhorDistancia = 0;
         for(Cano cano : canos){
@@ -42,6 +54,7 @@ public class GameManager {
     }
 
     public void update(){
+        definirCanoPassaro();
         passaro.update();
         canos.forEach(cano -> cano.update());
         definirPosCano();

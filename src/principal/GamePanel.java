@@ -1,7 +1,6 @@
 package principal;
 
 import javax.swing.JPanel;
-import principal.GameManager;
 import inputs.PlayerInputs;
 
 import java.awt.*;
@@ -10,7 +9,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private Thread gameThread;
     private final int FPS = 60;
-
+ 
     GameManager gameManager;
 
     public GamePanel() {
@@ -21,7 +20,6 @@ public class GamePanel extends JPanel implements Runnable {
         setBackground(Color.BLACK);
         addKeyListener(new PlayerInputs(gameManager));
         setFocusable(true);
-
 
         gameThread = new Thread(this);
         gameThread.start();

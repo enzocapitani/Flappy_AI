@@ -9,29 +9,33 @@ public class Cano {
     
     Random rand = new Random();
 
-    int x1, x2, y1, y2;
+    public int x1, y1, y2;
     int velocidade = 3;
-    int dx, dy;
+    public int dx, dy;
     double abertura = Global.altura_tela * 0.2;
 
     Image img = Global.carregarImagem("resources/images/Cano.png");
 
     int espacoTela;
 
-    public Cano(){
+    public Cano(int x){
         espacoTela = rand.nextInt(300) + 100;
 
         dx = (int)(Global.largura_tela * 0.04);
 
         dy = (int)(Global.altura_tela*1.5);
     
-        x1 = 200;
+        this.x1 = x;
 
         y1 = -dy + espacoTela;
         y2 = (int) (espacoTela + abertura);
 
         System.out.println(dx+" "+Global.altura_tela*1.5);
 
+    }
+
+    public void update(){
+        x1 -= velocidade;
     }
 
     public void desenharCano(Graphics2D g2){

@@ -61,6 +61,13 @@ public class GameManager {
         return melhorDistancia;
     }
 
+    public void reset(){
+        passaro.reset();
+        for(int i = 0; i < canos.size(); i++){
+            canos.get(i).setX(Global.largura_tela + i * espacamento);
+        }
+    }
+
     public void update(){
         definirCanoPassaro();
 
@@ -68,6 +75,8 @@ public class GameManager {
         canos.forEach(cano -> cano.update());
 
         definirPosCano();
+
+        if(!passaro.vivo) reset();
     }
 
     public void desenharComponentes(Graphics2D g2){

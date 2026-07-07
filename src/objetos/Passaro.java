@@ -13,9 +13,9 @@ public class Passaro {
 
     Cano cano = null;
 
-    boolean vivo = true;
+    public boolean vivo = true;
 
-    private double gravidade = 0.4, velocidadeQueda = 0, forcaPulo = 8 ;
+    private double gravidade = 0.5, velocidadeQueda = 0, forcaPulo = 8;
 
     public Passaro(){
 
@@ -69,7 +69,7 @@ public class Passaro {
     public void mudarAngulo(){
         angulo += mudarAngulo; 
 
-        if(angulo <= -30) mudarAngulo = gravidade*5 ;
+        if(angulo <= -30) mudarAngulo = gravidade*4 ;
 
         if(angulo < -31) angulo = -31;  
 
@@ -84,6 +84,14 @@ public class Passaro {
             mudarAngulo();
             colisao();
         }
+    }
+
+    public void reset(){
+        x = 300;
+        y = Global.altura_tela / 2;
+        velocidadeQueda = -forcaPulo;
+        angulo = -31;
+        vivo = true;
     }
 
     public void desenharPassaro(Graphics2D g2){

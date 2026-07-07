@@ -36,6 +36,10 @@ public class Cano {
         x1 -= velocidade;
     }
 
+    public void setX(int x){
+        this.x1 = x;
+    }
+
     public void desenharCano(Graphics2D g2){
         Graphics2D g2d = (Graphics2D)g2.create();
         g2d.setColor(Color.GREEN);

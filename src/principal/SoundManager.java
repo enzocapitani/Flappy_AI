@@ -37,7 +37,7 @@ public class SoundManager {
 
         if(clip == null) return;
 
-        //clip.stop();
+        clip.stop();
         clip.setFramePosition(0);
         clip.start();
     }

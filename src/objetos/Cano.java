@@ -12,9 +12,9 @@ public class Cano {
     public int x1, y1, y2;
     int velocidade = 3;
     public int dx, dy;
-    double abertura = Global.altura_tela * 0.2;
+    double abertura = Global.altura_tela * 0.21;
 
-    Image img = Global.carregarImagem("resources/images/Cano.png");
+    Image img = Global.carregarImagem("/resources/images/Cano.png");
 
     int espacoTela;
 
@@ -29,8 +29,6 @@ public class Cano {
 
         y1 = -dy + espacoTela;
         y2 = (int) (espacoTela + abertura);
-
-        System.out.println(dx+" "+Global.altura_tela*1.5);
 
     }
 

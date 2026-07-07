@@ -15,7 +15,13 @@ public class GameManager {
     ArrayList<Cano> canos = new ArrayList<>();
 
     public GameManager(){
+        inicializarSom();
         inicializarObj();
+    }
+
+    public void inicializarSom(){
+        SoundManager.load("jump", "/resources/sons/jump.wav");
+        SoundManager.load("hit", "/resources/sons/hitHurt.wav");
     }
 
     public void inicializarObj(){
@@ -36,8 +42,10 @@ public class GameManager {
         int distancia = Integer.MAX_VALUE;
         for (Cano cano : canos) {
 
-            if(cano.x1 < distancia){
-                distancia = cano.x1;
+            //* Vê o cano mais próximo atualmente, adiciona ele ao objeto do pássaro 
+            //*  e verifica se ele ainda é maior que a metade do outro, se não, muda de cano
+            if(cano.x1 - passaro.x < distancia && cano.x1 - passaro.x > -cano.dx/2){
+                distancia = cano.x1 - passaro.x;
                 passaro.setCano(cano);
             }
 
@@ -55,8 +63,10 @@ public class GameManager {
 
     public void update(){
         definirCanoPassaro();
+
         passaro.update();
         canos.forEach(cano -> cano.update());
+
         definirPosCano();
     }
 

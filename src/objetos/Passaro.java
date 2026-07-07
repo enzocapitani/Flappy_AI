@@ -1,15 +1,13 @@
 package objetos;
 
 import principal.Global;
+import principal.SoundManager;
 
 import java.awt.*;
-
-
 public class Passaro {
-    Image img = Global.carregarImagem("resources/images/passaro.png");
-    int x = 300, y = Global.altura_tela / 2;
-    int tamanho = 48;
-
+    Image img = Global.carregarImagem("/resources/images/passaro.png");
+    public int x = 300, y = Global.altura_tela / 2;
+    int tamanho = 48; 
     double angulo = -30;
     double mudarAngulo = 2;
 
@@ -35,6 +33,7 @@ public class Passaro {
             y < cano.y1 + cano.dy
         ){
             vivo = false;
+            SoundManager.play("hit");
         }
 
         if(x + tamanho > cano.x1 &&
@@ -43,17 +42,28 @@ public class Passaro {
             y < cano.y2 + cano.dy
         ){
             vivo = false;
+            SoundManager.play("hit");
         }
 
         //* Colisao com os extremos da tela */
-        if(y < 0) vivo = false;
-        if(y > Global.altura_tela - tamanho) vivo = false;
+        if(y < 0){
+            vivo = false;
+            SoundManager.play("hit");
+        } 
+
+        if(y > Global.altura_tela - tamanho){
+            vivo = false;
+            SoundManager.play("hit");
+        }
 
     }
 
     public void pular(){
-        velocidadeQueda = -forcaPulo;
-        mudarAngulo = -10;
+        if(vivo){
+            velocidadeQueda = -forcaPulo;
+            mudarAngulo = -10;
+            SoundManager.play("jump");
+        }
     }
 
     public void mudarAngulo(){

@@ -18,9 +18,9 @@ public class Global {
     //Carrega imagens
     public static Image carregarImagem(String path) {
         try {
-            File arquivoImagem = new File(path);
 
-            BufferedImage imagem = ImageIO.read(arquivoImagem);
+
+            BufferedImage imagem = ImageIO.read(Global.class.getResource(path));
 
             if (imagem != null) {
                 return imagem;

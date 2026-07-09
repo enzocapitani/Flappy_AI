@@ -12,11 +12,11 @@ public class Cano {
     public int x1, y1, y2;
     int velocidade = 3;
     public int dx, dy;
-    double abertura = Global.altura_tela * 0.21;
+    public double abertura = Global.altura_tela * 0.21;
 
     Image img = Global.carregarImagem("/resources/images/Cano.png");
 
-    int espacoTela;
+    public int espacoTela;
 
     public Cano(int x){
         espacoTela = rand.nextInt(300) + 100;

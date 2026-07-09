@@ -9,6 +9,7 @@ import principal.Global;
 public class GameManager {
 
     public Passaro passaro = new Passaro();
+    //public Passaro passaro1 = new PassaroIA(300);
 
     final int QT_CANOS = 10;
     int espacamento = (int) (Global.largura_tela * 0.25);

@@ -11,11 +11,11 @@ public class Passaro {
     double angulo = -30;
     double mudarAngulo = 2;
 
-    Cano cano = null;
+    public Cano cano = null;
 
     public boolean vivo = true;
 
-    private double gravidade = 0.5, velocidadeQueda = 0, forcaPulo = 8;
+    protected double gravidade = 0.5, velocidadeQueda = 0, forcaPulo = 8;
 
     public Passaro(){
 

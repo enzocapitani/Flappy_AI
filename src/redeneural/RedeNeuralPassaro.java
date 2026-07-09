@@ -11,12 +11,12 @@ public class RedeNeuralPassaro {
 	Passaro passaro;
 	
 	final int QT_ENTRADAS = 2;
-	final int QT_OCULTOS = 2;
+	final int QT_OCULTOS = 4;
 	
 	double neuronios[];
 	double pesos[];
 	double pesos2[];
-	int entradas[];
+	double entradas[];
 	
 	double saida;
 	
@@ -26,7 +26,7 @@ public class RedeNeuralPassaro {
 		neuronios = new double[2];
 		pesos = new double[QT_ENTRADAS * QT_OCULTOS];
 		pesos2 = new double[neuronios.length];
-		entradas = new int[2];
+		entradas = new double[2];
 		
 		definirPesos(pesos);
 		definirPesos(pesos2);
@@ -46,17 +46,23 @@ public class RedeNeuralPassaro {
 	
 	public void definirEntradas() {
 		Cano cano = passaro.cano;
+		                               
+		//tentei normalizar
 		
-		int x = cano.x1 + cano.dx/2;
-		if(x > Global.largura_tela/2) x = Global.largura_tela/2;
+		int x = cano.x1 + cano.dx/2 - passaro.x;
+		int y =  cano.espacoTela + (int)cano.abertura/2 - passaro.y;
 		
 		this.entradas[0] = x;
 		//Y meio do cano;
-		this.entradas[1] = cano.espacoTela + (int)cano.abertura/2;
+		this.entradas[1] = y;
 	}
 	
 	private double relu(double value) {
 		return Math.max(0, value);
+	}
+	
+	private double sigmoid(double value) {
+		return 1/(1 + Math.exp(-value));
 	}
 	
 	public void updateRede() {
@@ -68,7 +74,7 @@ public class RedeNeuralPassaro {
 		neuronios[0] = relu(entradas[0] * pesos[0] + entradas[1] * pesos[1]);
 		neuronios[1] = relu(entradas[0] * pesos[2] + entradas[1] * pesos[3]);
 		
-		return relu(neuronios[0] * pesos2[0] + neuronios[1] * pesos2[1]) > 0;
+		return sigmoid(neuronios[0] * pesos2[0] + neuronios[1] * pesos2[1]) > 0.5;
 		
 	}
 	

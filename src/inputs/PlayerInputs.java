@@ -21,7 +21,7 @@ public class PlayerInputs implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_SPACE -> gameManager.passaro.pular();
+            case KeyEvent.VK_SPACE -> gameManager.passaroP  .pular();
         }
     }
 

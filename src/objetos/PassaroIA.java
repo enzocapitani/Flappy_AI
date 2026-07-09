@@ -11,18 +11,19 @@ public class PassaroIA extends Passaro{
 		this.redeneural = new RedeNeuralPassaro(this);
 	}
 	
-	public void definirEntradasRede() {
-		
-	}
-	
 	@Override
 	public void update() {
 		if(vivo) {
 			y+= velocidadeQueda;
 			velocidadeQueda += gravidade;
+
+			redeneural.updateRede();
 			
 			mudarAngulo();
 			colisao();
+			
+			if(redeneural.decisao()) pular();
+			
 		}
 	}
 	

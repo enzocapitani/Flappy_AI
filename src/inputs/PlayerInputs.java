@@ -3,7 +3,7 @@ package inputs;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import principal.GameManager;
+import principal.managers.GameManager;
 
 public class PlayerInputs implements KeyListener {
 

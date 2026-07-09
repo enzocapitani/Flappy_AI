@@ -1,9 +1,10 @@
-package principal;
+package principal.managers;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 import objetos.*;
+import principal.Global;
 
 public class GameManager {
 

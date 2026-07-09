@@ -1,7 +1,7 @@
 package objetos;
 
 import principal.Global;
-import principal.SoundManager;
+import principal.managers.SoundManager;
 
 import java.awt.*;
 public class Passaro {

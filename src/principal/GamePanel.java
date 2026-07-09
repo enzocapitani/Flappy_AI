@@ -2,6 +2,7 @@ package principal;
 
 import javax.swing.JPanel;
 import inputs.PlayerInputs;
+import principal.managers.GameManager;
 
 import java.awt.*;
 

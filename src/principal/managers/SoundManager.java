@@ -1,4 +1,4 @@
-package principal;
+package principal.managers;
 
 import java.net.URL;
 import java.util.HashMap;

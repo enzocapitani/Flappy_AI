@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import objetos.*;
 import principal.Global;
+import redeneural.EvolutionManager;
 
 public class GameManager {
 
@@ -17,11 +18,14 @@ public class GameManager {
     final int maxPassaro = 50 ;
 
     ArrayList<Cano> canos = new ArrayList<>();
-    ArrayList<Passaro> iaPassaros = new ArrayList<>();
+    ArrayList<PassaroIA> iaPassaros = new ArrayList<>();
+    
+    EvolutionManager evm;
 
     public GameManager(){
         inicializarSom();
         inicializarObj();
+        evm = new EvolutionManager();
     }
 
     public void inicializarSom(){
@@ -72,9 +76,17 @@ public class GameManager {
 
     public void reset(){
         passaroP.reset();
+        
         for(int i = 0; i < canos.size(); i++){
             canos.get(i).setX(Global.largura_tela + i * espacamento);
         }
+        
+        for(int i = 0; i < iaPassaros.size(); i++) {
+        	iaPassaros.get(i).reset();
+        }
+        
+        evm.evoluir(iaPassaros);
+        
     }
 
     public void update(){
@@ -90,7 +102,17 @@ public class GameManager {
         	
         definirPosCano();
 
-        if(!passaroP.vivo) reset();
+        if(!todosVivos()) reset();
+    }
+    
+    public boolean todosVivos() {
+    	if(passaroP.vivo) return true;
+    	
+    	for(PassaroIA passaro : iaPassaros) {
+    		if(passaro.vivo) return true;
+    	}
+    	
+    	return false;
     }
 
     public void desenharComponentes(Graphics2D g2){

@@ -14,6 +14,8 @@ public class Passaro {
     public Cano cano = null;
 
     public boolean vivo = true;
+    
+    public int distanciaPercorrida;
 
     protected double gravidade = 0.5, velocidadeQueda = 0, forcaPulo = 8;
 
@@ -62,7 +64,7 @@ public class Passaro {
         if(vivo){
             velocidadeQueda = -forcaPulo;
             mudarAngulo = -10;
-            SoundManager.play("jump");
+            //SoundManager.play("jump");
         }
     }
 

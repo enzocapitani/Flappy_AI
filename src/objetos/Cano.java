@@ -10,9 +10,9 @@ public class Cano {
     Random rand = new Random();
 
     public int x1, y1, y2;
-    int velocidade = 3;
+    int velocidade = 6;
     public int dx, dy;
-    public double abertura = Global.altura_tela * 0.21;
+    public double abertura = Global.altura_tela * 0.17;
 
     Image img = Global.carregarImagem("/resources/images/Cano.png");
 
